@@ -20,11 +20,63 @@ h4,
 h5,
 h6 {
   font-family: 'Josefin Sans', sans-serif;
+  text-transform: uppercase;
 }
 
 p {
   font-family: 'Alata', sans-serif;
   font-size: 15px;
+  color: hsl(0, 0%, 41%);
+}
+
+button {
+  font-family: 'Alata', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: -99;
+  transition: opacity 0.4s;
+}
+
+.navbar.open {
+  opacity: 1;
+  z-index: 999999;
+}
+
+/* Menu button */
+.bar {
+  cursor: pointer;
+}
+
+.menu-button {
+  position: absolute;
+  right: 20px;
+  z-index: 1000000;
+}
+
+.menu-button.rotate .bar-1 {
+  position: absolute;
+  right: 20px;
+  transform: rotate(40deg);
+}
+
+.menu-button.rotate .bar-2 {
+  position: absolute;
+  right: 20px;
+  opacity: 0;
+}
+
+.menu-button.rotate .bar-3 {
+  position: absolute;
+  right: 20px;
+  transform: rotate(-40deg);
 }
 
 /* Showcase */
@@ -38,4 +90,81 @@ p {
 
 .showcase .overlay {
   height: 700px;
+}
+
+/* Creations */
+.creations-desktop {
+  display: none;
+}
+
+/* Copyright */
+.copyright {
+  font-family: 'Alata', sans-serif;
+  color: hsl(0, 0%, 55%);
+}
+
+/* Attribution */
+.attribution {
+  font-size: 14px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(0, 0%, 55%);
+}
+
+@media (min-width: 992px) {
+  .navbar {
+    position: relative;
+    opacity: 1;
+    z-index: 999999;
+  }
+
+  .navbar ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu-button {
+    display: none;
+  }
+
+  .creations-mobile {
+    display: none;
+  }
+
+  .creations-desktop {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .showcase {
+    background: url('./images/desktop/image-hero.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .interactive {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .interactive-text {
+    position: absolute;
+    right: 50px;
+    bottom: -10%;
+    width: 800px;
+    background-color: #fff;
+    padding: 50px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .interactive img {
+    width: 100%;
+  }
 }
